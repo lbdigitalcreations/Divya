@@ -1,7 +1,5 @@
-# robots.txt for https://lbdigitalcreations.github.io/Divya/
-
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap
 Sitemap: https://lbdigitalcreations.github.io/Divya/sitemap.xml
