@@ -238,8 +238,9 @@ body {
 .celebration-overlay {
   position: fixed; inset: 0;
   background: rgba(253, 251, 247, 0.99);
-  z-index: 20000; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  z-index: 20000; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
   transition: 0.5s; backdrop-filter: blur(20px);
+  overflow-y: auto; overflow-x: hidden;
 }
 
 .overlay-close {
@@ -350,7 +351,7 @@ body {
 /* ── GRAND WISH MESSAGE ── */
 .grand-wish {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 40px; text-align: center; padding: 40px;
+  gap: 40px; text-align: center; padding: 40px; margin: auto; max-width: 100%; box-sizing: border-box;
   animation: wish-entry 1.5s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
