@@ -353,6 +353,7 @@ body {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 40px; text-align: center; padding: 40px; margin: auto; max-width: 100%; box-sizing: border-box;
   animation: wish-entry 1.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+  max-height: 100vh; overflow-y: auto; width: 100%;
 }
 
 .grand-photo-wrap {
@@ -446,7 +447,7 @@ body {
 
 /* ── SECTIONS ── */
 section {
-  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 100px 20px; position: relative;
 }
 
@@ -637,13 +638,20 @@ section {
   
   /* Cards & Sections */
   .glass-card { padding: 30px 20px; }
-  .section-title { font-size: 2.2rem; margin-bottom: 30px; }
+  .section-title { font-size: 2.2rem; margin-bottom: 30px; text-align: center; width: 100%; }
+  .journey-text { text-align: center; display: flex; flex-direction: column; align-items: center; }
   .journey-text h3 { font-size: 1.5rem; }
   .journey-text p { font-size: 1.1rem; }
   
+  /* Golden Wishes */
+  .wishes-grid { gap: 20px; justify-items: center; }
+  .wish-card { height: 350px; width: 100%; max-width: 350px; }
+  .wish-overlay { text-align: center; align-items: center; padding: 30px 20px; }
+  
   /* Messages */
-  .message-content { padding: 30px 20px; }
+  .message-content { padding: 30px 20px; text-align: center; align-items: center; }
   .handwriting { font-size: 1.6rem; }
+  .signature { text-align: center; width: 100%; }
   
   /* Grand Wish & Overlays */
   .wish-title { font-size: clamp(2.2rem, 8vw, 3rem); letter-spacing: 2px; }
