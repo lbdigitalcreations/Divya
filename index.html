@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 18th Birthday Divya — Friends Forever ✨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="Friendship-Anthem-MassTamilan.io.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Interactive Sparkle Background -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Cinematic Splash Countdown -->
+  <div id="splash-screen" class="splash-screen">
+    <div class="splash-content">
+      <div id="countdown-wrapper" class="countdown-wrapper">
+        <div id="countdown" class="countdown-number">5</div>
+      </div>
+      <div id="enter-btn" class="enter-btn hidden" onclick="unlockMagic()">PRESS HERE ✨</div>
+    </div>
+    <div class="zoom-text" id="zoom-text">HAPPY BIRTHDAY DIVYA</div>
+  </div>
+
+  <!-- Special Photo Notes Overlay (New Page) -->
+  <div id="photo-notes-overlay" class="photo-notes-overlay hidden">
+    <div class="overlay-close" onclick="closePhotoNotes()">✕</div>
+    <h2 class="overlay-title">Memories & <span class="gold-text">Notes</span></h2>
+    <div class="notes-container" id="notes-grid">
+      <!-- Photos with notes will be injected here -->
+    </div>
+    <div class="creator-credit-small">Made with ❤️ by <a href="http://lbdigitalcreations.in" target="_blank"
+        class="professional-link">LB Digital Creations</a></div>
+  </div>
+
+  <!-- Grand Celebration Overlay -->
+  <div id="celebration-overlay" class="celebration-overlay hidden">
+    <div class="overlay-close" onclick="closeCelebration()">✕</div>
+
+    <!-- Grand Birthday Message -->
+    <div id="grand-wish" class="grand-wish">
+      <div class="grand-photo-wrap">
+        <img src="IMG-20260422-WA0010 - Abinaya.jpg" alt="Divya">
+      </div>
+      <div class="grand-text-wrap">
+        <h1 class="wish-title">HAPPY 18TH BIRTHDAY<br>DIVYA!</h1>
+        <p class="wish-subtitle">FRIENDS FOREVER ✨ BY DIVYA'S FRIENDS</p>
+        <div class="event-date">MAY 3, 2026</div>
+      </div>
+    </div>
+
+    <div id="heartfelt-wish" class="grand-wish hidden"
+      style="display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; max-width: 900px; margin: 0 auto; width: 100%; box-sizing: border-box;">
+      <div class="grand-photo-wrap"
+        style="width: clamp(200px, 50vw, 300px); height: clamp(200px, 50vw, 300px); margin-bottom: clamp(15px, 4vw, 30px);">
+        <img src="IMG-20260422-WA0009 - Abinaya.jpg" alt="Divya"
+          style="object-position: center 70% !important;">
+      </div>
+      <div class="grand-text-wrap" style="max-width: 100%; width: 100%;">
+        <h2 class="wish-title"
+          style="font-size: clamp(2rem, 6vw, 2.8rem); margin-bottom: clamp(10px, 3vw, 20px); line-height: 1.2;">
+          🌟 You Are Truly Special 🌟
+        </h2>
+        <p class="wish-subtitle"
+          style="font-size: clamp(1.1rem, 4vw, 1.6rem); line-height: 1.6; font-style: italic; color: var(--text-main); margin-bottom: clamp(15px, 4vw, 25px); padding: 0 10px;">
+          🌺 "Divya, you are not just a friend — you are a blessing to everyone around you. 💫 Your laughter is
+          contagious, your heart is pure gold, and your kindness makes the world a better place. 🌈 As you step into
+          this beautiful new chapter of 18, may every door open wide for you, every dream find its wings, and every
+          moment be filled with joy and love. 🎀 We are so proud of you and so lucky to have you in our lives! ❤️🎂"
+        </p>
+        <div
+          style="font-family: 'Cinzel', serif; color: var(--gold); font-size: clamp(0.85rem, 3vw, 1.1rem); letter-spacing: clamp(1px, 1vw, 3px); padding: 0 10px;">
+          — Forever Yours 🌸 Divya's Dearest Friends
+        </div>
+      </div>
+    </div>
+
+    <div class="celebration-slideshow hidden" id="slideshow">
+      <!-- 11 Slides will be injected by JS -->
+    </div>
+    <div class="slideshow-nav hidden" id="slideshow-nav">
+      <button class="nav-arrow prev" onclick="changeSlide(-1)"><span></span></button>
+      <button class="nav-arrow next" onclick="changeSlide(1)"><span></span></button>
+    </div>
+  </div>
+
+  <div class="app-container hidden">
+
+    <!-- Hero Header -->
+    <header class="main-header">
+      <div class="logo-wrap">
+        <div class="logo">DIVYA <span class="gold-text">18</span></div>
+        <div class="header-tagline">FRIENDS FOREVER ✨ BY DIVYA'S FRIENDS</div>
+      </div>
+      <nav class="header-nav">
+        <button class="nav-btn" onclick="openHomeCelebration()">CELEBRATION 🎉</button>
+        <button class="nav-btn" onclick="openPhotoNotes()">SPECIAL NOTES 📜</button>
+        <div class="music-toggle" onclick="toggleMusic()">
+          <span id="music-icon">🔇</span>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ── HERO SECTION ── -->
+    <section class="hero-section">
+      <div class="hero-content reveal">
+        <div class="crown">👑</div>
+        <div class="portrait-frame" style="cursor: pointer;" onclick="changeHeroImage()" title="Click to change photo">
+          <img id="hero-img" src="IMG-20260422-WA0010 - Abinaya.jpg" alt="Divya">
+        </div>
+        <h1 class="title">HAPPY 18TH BIRTHDAY,<br><span class="highlight">DIVYA!</span></h1>
+        <p class="subtitle">FRIENDS FOREVER ✨ BY DIVYA'S FRIENDS</p>
+        <div class="event-date">MAY 3, 2026</div>
+        <div class="scroll-indicator">
+          <div class="mouse"></div>
+          <span>Scroll to Explore</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── JOURNEY SECTION ── -->
+    <section class="content-section journey-bg">
+      <div class="glass-card reveal">
+        <h2 class="section-title">A <span class="gold-word">Beautiful</span> Journey</h2>
+        <div class="journey-grid">
+          <div class="journey-image">
+            <img src="IMG-20260422-WA0013 - Abinaya.jpg" alt="Journey">
+          </div>
+          <div class="journey-text">
+            <h3>Chapter 18</h3>
+            <p>"Today marks the start of your adulthood. Carry every laugh we've shared and the knowledge that you're
+              deeply loved. The world is yours to explore, Divya."</p>
+            <button class="celebrate-btn" style="margin-top: 20px;" onclick="openPhotoNotes()">VIEW SPECIAL
+              NOTES</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PHOTO WISHES ── -->
+    <section class="content-section">
+      <h2 class="section-title reveal">Golden <span class="gold-word">Wishes</span></h2>
+      <div class="wishes-grid">
+        <div class="wish-card reveal">
+          <img src="IMG-20260422-WA0004 - Abinaya.jpg">
+          <div class="wish-overlay">
+            <h3>🌟 Success</h3>
+            <p>"May your path be paved with gold and your heart with courage."</p>
+          </div>
+        </div>
+        <div class="wish-card reveal">
+          <img src="IMG-20260422-WA0005 - Abinaya.jpg">
+          <div class="wish-overlay">
+            <h3>🚀 Dreams</h3>
+            <p>"Reach for the stars, for they are within your grasp today."</p>
+          </div>
+        </div>
+        <div class="wish-card reveal">
+          <img src="IMG-20260422-WA0006 - Abinaya.jpg">
+          <div class="wish-overlay">
+            <h3>💎 Brilliance</h3>
+            <p>"Keep shining, for your light is what makes the world beautiful."</p>
+          </div>
+        </div>
+        <div class="wish-card reveal">
+          <img src="IMG-20260422-WA0008 - Abinaya.jpg">
+          <div class="wish-overlay">
+            <h3>🌈 Magic</h3>
+            <p>"May your life be as magical as the love you give to others."</p>
+          </div>
+        </div>
+        <div class="wish-card reveal">
+          <img src="IMG-20260422-WA0007 - Abinaya.jpg">
+          <div class="wish-overlay">
+            <h3>🥂 Celebration</h3>
+            <p>"Cheers to 18 years of being absolutely extraordinary."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SPECIAL MESSAGE ── -->
+    <section class="content-section special-bg">
+      <div class="ornament-divider reveal"><span class="jewel">📜</span></div>
+      <div class="special-message-card reveal">
+        <div class="special-photo">
+          <img src="IMG-20260422-WA0009 - Abinaya.jpg" alt="Special">
+        </div>
+        <div class="message-content">
+          <h2 class="gold-word">A Message to You</h2>
+          <p class="handwriting">"Happy Birthday Divya! Step into this New chapter with Confidence and Joy. May your
+            Life be filled with success, laughter and beautiful memories."</p>
+          <div class="signature">- FRIENDS FOREVER ✨ BY DIVYA'S FRIEND</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CELEBRATE FOOTER ── -->
+    <footer class="site-footer reveal">
+      <div class="ornament-divider"><span class="jewel">✨</span></div>
+      <h2 class="title">CHEERS TO <span class="highlight">DIVYA!</span></h2>
+      <div class="footer-btns">
+        <button class="celebrate-btn" onclick="openHomeCelebration()">🎉 CELEBRATE 🎉</button>
+        <button class="celebrate-btn" onclick="openPhotoNotes()">📸 SPECIAL NOTES</button>
+      </div>
+      <p class="footer-note">✿ Happy 18th Birthday, Divya! ✿<br>Organized with ❤️ By Divya's Friends</p>
+      <div class="agency-signature">
+        <a href="http://lbdigitalcreations.in" target="_blank" class="agency-logo">
+          <img src="logo.jpg" alt="LB Digital Creations Logo">
+        </a>
+        <div class="agency-info">
+          <h3 class="agency-heading">OUR WEBSITE CREATIONS</h3>
+          <p class="agency-cta">For any kind of function websites, contact us.</p>
+          <a href="http://lbdigitalcreations.in" target="_blank" class="professional-link">lbdigitalcreations.in</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
